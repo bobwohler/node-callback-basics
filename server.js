@@ -12,12 +12,15 @@ function start(route, handle){
 
         console.log("Request for '" + pathname + "' received");
 
-        response.writeHead(200, {"Content-Type": "text/plain"});
+        // response.writeHead(200, {"Content-Type": "text/plain"});
         // NOTE: using a "return" pattern is the wrong to return content from
         // a route function.
-        var content = route(pathname, handle);
-        response.write(content); 
-        response.end(); 
+        // var content = route(pathname, handle);
+        // Instead, pass the http response variable to the function.
+        route(pathname, handle, response);
+
+        // response.write(content); 
+        // response.end(); 
     }
 
     // Will write out "server has started" ONLY when the webs server
