@@ -12,11 +12,11 @@ function start(route, handle){
 
         console.log("Request for '" + pathname + "' received");
 
-        // Leverage our routing module to route the request appropriately.
-        route(pathname, handle);
-
         response.writeHead(200, {"Content-Type": "text/plain"});
-        response.write("Hello World");
+        // NOTE: using a "return" pattern is the wrong to return content from
+        // a route function.
+        var content = route(pathname, handle);
+        response.write(content); 
         response.end(); 
     }
 
