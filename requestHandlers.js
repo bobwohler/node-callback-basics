@@ -24,5 +24,13 @@ function upload(response){
     response.end();
 }
 
+function help(response){
+    console.log("Request handler 'help' was called.");
+    response.writeHead(200, {"Content-Type": "text/plain"});
+    response.write("Append 'start' or 'upload' to interact.");
+    response.end();
+}
+
 exports.start = start;
 exports.upload = upload;
+exports.help = help;

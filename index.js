@@ -11,6 +11,7 @@ var handle = {} // New object
 handle["/"] = requestHandlers.start;
 handle["/start"] = requestHandlers.start;
 handle["/upload"] = requestHandlers.upload;
+handle["/help"] = requestHandlers.help;
 
 // Pass the handle object so downstream the router can get it.
 server.start(router.route, handle);
